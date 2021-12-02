@@ -2,6 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+//this code is not fully functional. I apologize. I've been struggling a bit mentally lately here, and even with
+//the extension was not able to finish. The plan here was to have a function that read each instruction, then executed
+//them using the necessary function. From there, each fit type would be called.
+
 typedef struct block {
     int memory;     //how much memory it takes up
     int memStart;   //starting location of memory
@@ -12,18 +16,13 @@ typedef struct block {
 struct block *head = NULL;
 struct block *current = NULL;
 
-char instruction[50]; //holds the instruction/values to be assigned/listed/etc. each 'fit' will perform
-//instructions as needed
-char *instructArray[200];   //array to hold lists of instructions
+char instruction[50]; //holds the instruction/values to be assigned/listed/etc.
+
 //struct block* memStore[200];        //array to hold the various memory blocks
 int requests = 0;   //number of requests for blocks
 int totalMem;   //total amount of memory assigned at read
 
-void readInstructions(){
-
-}
-
-void insertFirst(char process[], int memory, int memStart){
+void insertFirst(char process[], int memory, int memStart){ //insert at start of LL
     struct block *link = (struct block*) malloc(sizeof(struct block));
     link->memStart = memStart;
     link->memory = memory;
@@ -33,7 +32,7 @@ void insertFirst(char process[], int memory, int memStart){
     head = link;
 }
 
-int length() {
+int length() {  //find length of LL
     int length = 0;
     struct block *count;
 
@@ -43,7 +42,7 @@ int length() {
     return length;
 }
 
-struct block* find (char key[]) {
+struct block* find (char key[]) {   //find LL by key
     struct block* current = head;
     if(head == NULL){
         return NULL;
@@ -60,7 +59,7 @@ struct block* find (char key[]) {
     return current;
 }
 
-struct block* delete(char key[]){
+struct block* delete(char key[]){    //delete block from LL
     struct block* current = head;
     struct block* previous = NULL;
 
@@ -87,29 +86,29 @@ struct block* delete(char key[]){
     return current;
 }
 
-void bestfit(){
+void bestfit(){ //best fit method
 
 }
 
-void firstfit(){
+void firstfit(){        //first fit method
 
 }
 
-void worstfit(){
+void worstfit(){    //worst fit method
 
 }
 
-void nextfit(){
+void nextfit(){ //next fit method
 
 }
 
-void request(char requestBlock[]){
+void request(char requestBlock[], int memory, int memStart){    //request a new block; use insert
     char requestHolder[6];
     char processName[5];
     int memory;
 }
 
-void release(){
+void release(){ //release a block; call delete
 
 }
 
@@ -133,7 +132,7 @@ int numberRequests(){ //to get number of blocks
     return requests;
 }
 
-void readInstruct(char instruction[]){
+void readInstruct(char instruction[]){  //read and execute instructions
     if(instruction[0] == 'R' && instruction[2] == 'Q'){
         numberRequests();
         request(instruction);

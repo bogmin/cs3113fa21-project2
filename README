@@ -1,0 +1,3 @@
+Code isn't fully functional. Got linked list set up and read-in but have been struggling a bit mentally lately and have not finished.
+Plan was to have the code use a function to read each instruction as it's fed in, then use one of the functions listed for each potential input. At that point it would call 
+the various fit types to perform necessary operations.

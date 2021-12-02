@@ -153,8 +153,6 @@ int main(int argc, char **argv) {
     int i = 0;
 
     while(fgets(instruction, sizeof(instruction), fp) != NULL){ //fgets reads instructions, then puts them in instructArray
-        instructArray[i] = instruction;
-        i++;
         readInstruct(instruction);
     }
 

@@ -102,7 +102,7 @@ void nextfit(){ //next fit method
 
 }
 
-void request(char requestBlock[], int memory, int memStart){    //request a new block; use insert
+void request(char requestBlock[]){    //request a new block; use insert
     char requestHolder[6];
     char processName[5];
     int memory;
